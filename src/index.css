@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@theme {
+  --color-dark: #0F0F0F;
+  --color-darkalt: #1A1A1A;
+  --color-surface: #FFFFFF;
+  --color-yellow: #FFCE31;
+  --color-coral: #FF5C38;
+  --color-teal: #2DD4BF;
+  --color-blue: #4F8CFF;
+  --color-light: #E5E5E5;
+  --color-muted: #888888;
+
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-hand: "Caveat", cursive;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-light);
+  background-color: var(--color-dark);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Float animation for logo */
+@keyframes gentle-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.animate-float {
+  animation: gentle-float 4s ease-in-out infinite;
+}
+
+/* Scroll reveal animation */
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal-visible {
+  animation: reveal-up 0.7s ease-out forwards;
+}
